@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- NameService 클래스의 객체변수에 해당하는 bean 생성 
+	id : 객체변수명(보통 클래스명 사용하고 첫글자 소문자 나머지는 클래스명과 동일하게 사용하는게 일반적	
+	class : bean 과 매칭될 클래스명(경로포함)	-->
+	
+	<bean id="nameService" class="com.di_spring_di_xml_setter.NameService"/>
+	
+	<!-- bean id nameService 를 주입해줘야하는 종속객체(bean) 
+		객체 bean 을 생성하고 클래스에 의존 관계를 표시해야함
+	 -->
+	<bean id="nameController" class="com.di_spring_di_xml_setter.NameController">
+		<!-- Setter 기반 : nameService 참조 -->
+		<property name="nameService" ref="nameService"/>
+	</bean>
+
+</beans>
